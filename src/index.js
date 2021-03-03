@@ -1,11 +1,13 @@
 const express = require('express')
 const cors = require('cors')
-//const axios = require('axios')
+const routes = require('./interfaces/routes/routes')
 
 const app = express()
 
-app.use(cors())
 
-//app.get('/', async())
+app.use(cors())
+app.options('*', cors())
+
+app.use('/home', routes)
 
 app.listen(8080, () => console.log('Server is running!'))
