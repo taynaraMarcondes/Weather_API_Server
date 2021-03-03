@@ -8,6 +8,6 @@ const app = express()
 app.use(cors())
 app.options('*', cors())
 
-app.use('/home', routes)
+app.use('/', routes)
 
 app.listen(8080, () => console.log('Server is running!'))
