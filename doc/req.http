@@ -1,0 +1,5 @@
+@search =
+# @name getcityDetails
+GET {{baseUrl}}
+    //?search={{search}}
+###
