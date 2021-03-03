@@ -1,31 +1,24 @@
-const api = require('../../services/api')
+const Controller = require('../../controllers/controllers')
+const express = require('express')
+const router = express.Router()
 const Controllers = require('../../controllers/controllers')
 
+router.get('/search/:city', async (req, res) => {
+    await Controllers.getCityDetails(req, res)
+})
+router.get('/', Controllers.get)
 
+router.get("*", (req, res) => {
+    return res.status(404).send({
+        message: "resource not foud",
+    });
+});
 
+router.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send({
+        message: "Internal server error",
+    });
+});
 
-/*async function getCityDetails() {
-    try {
-        const req = await axios.get('/')
-        console.log('ali')
-        await Controllers.getCityDetails(req, res)
-        console.log('aqui')
-    } catch (e) {
-        console.error(e)
-    }
-}*/
-
-async function get() {
-    try {
-        const res = await api.get('/')
-        console.log(res)
-        return console.log('conseguiu!')
-    } catch (e) {
-        console.error(e)
-    }
-}
-
-
-get()
-
-module.exports = get
+module.exports = router
