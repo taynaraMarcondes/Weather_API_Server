@@ -1,5 +1,8 @@
-const axios = require('axios')
+const api = require('../../services/api')
 const Controllers = require('../../controllers/controllers')
+
+
+
 
 /*async function getCityDetails() {
     try {
@@ -12,12 +15,17 @@ const Controllers = require('../../controllers/controllers')
     }
 }*/
 
-axios.get('/')
-    .then(() => {
-        return console.log('foi')
-    })
-    .catch((e) => {
+async function get() {
+    try {
+        const res = await api.get('/')
+        console.log(res)
+        return console.log('conseguiu!')
+    } catch (e) {
         console.error(e)
-    })
+    }
+}
 
-module.exports = axios
+
+get()
+
+module.exports = get
