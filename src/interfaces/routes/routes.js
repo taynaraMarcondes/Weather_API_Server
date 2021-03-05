@@ -1,10 +1,11 @@
-const Controller = require('../../controllers/controllers')
 const express = require('express')
 const router = express.Router()
-const { errorMessages, generateError } = require('../../common/errors')
-const Controllers = require('../../controllers/controllers')
+const { errorMessages } = require('../../common/errors')
+const Controller = require('../../controllers/controllers')
 
-router.get('/search/:city', Controllers.getCityDetails)
+router.post('/weather/:city', Controller.upsertSearches)
+
+router.get('/weather', Controller.getSearches)
 
 router.get("*", (req, res) => {
     return res.status(404).send({
