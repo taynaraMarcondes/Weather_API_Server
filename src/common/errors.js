@@ -4,7 +4,8 @@ const errorMessages = {
 }
 
 const generateError = (res, status, msg) => res.status(status).send({
-    error: msg
+    error: true,
+    message: msg
 })
 
 module.exports = { errorMessages, generateError }

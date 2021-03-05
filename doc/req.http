@@ -1,4 +1,15 @@
+@popQtd=3
+@latestQtd=5
+# @name getSearches
+GET {{baseUrl}}/weather
+    ?popQtd={{popQtd}}
+    &latestQtd={{latestQtd}}
+###
 
-# @name getcityDetails
-GET {{baseUrl}}/search/:city
+# @name upsertSearches
+POST  {{baseUrl}}/weather/London
+Content-Type: application/json
+
+{"data":
+[{"coord":{"lon":-45.4528,"lat":-22.4256},"weather":[{"id":501,"main":"Rain","description":"moderate rain","icon":"10n"}],"base":"stations","main":{"temp":19.1,"feels_like":21.31,"temp_min":19.1,"temp_max":19.1,"pressure":1013,"humidity":93,"sea_level":1013,"grnd_level":918},"visibility":10000,"wind":{"speed":0.8,"deg":46,"gust":1.3},"rain":{"1h":1.4144},"clouds":{"all":100},"dt":1614909151,"sys":{"country":"BR","sunrise":1614848374,"sunset":1614893263},"timezone":-10800,"id":3460834,"name":"Itajubá","cod":200,"created_at":"2021-03-05T01:56:40.439Z"}]}
 ###
