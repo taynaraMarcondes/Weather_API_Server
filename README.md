@@ -18,7 +18,7 @@ Simple application applying the basic concepts about NodeJS, PostgreSQL and Pg, 
 First clone the project.
 
 ```
-https://github.com/taynaraMarcondes/teste-back_end.git
+https://github.com/taynaraMarcondes/Weather_API_Server.git
 ```
 
 Then install the dependencies
